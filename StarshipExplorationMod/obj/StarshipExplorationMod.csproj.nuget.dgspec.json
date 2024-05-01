@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\Valentin\\Documents\\Projets\\Modding\\LethalCompany\\StarshipExplorationMod\\StarshipExplorationMod\\StarshipExplorationMod.csproj": {
-      "version": "1.0.3",
+      "version": "0.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\Valentin\\Documents\\Projets\\Modding\\LethalCompany\\StarshipExplorationMod\\StarshipExplorationMod\\StarshipExplorationMod.csproj",
         "projectName": "Laventin.StarshipExplorationMod",
@@ -14,6 +14,7 @@
         "outputPath": "C:\\Users\\Valentin\\Documents\\Projets\\Modding\\LethalCompany\\StarshipExplorationMod\\StarshipExplorationMod\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "C:\\Users\\Valentin\\Documents\\Projets\\Modding\\LethalCompany\\StarshipExplorationMod\\StarshipExplorationMod\\NuGet.Config",
           "C:\\Users\\Valentin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -60,6 +61,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.*, )"
+            },
+            "Evaisa.LethalLib": {
+              "target": "Package",
+              "version": "[0.*, )"
             },
             "LethalCompany.GameLibs.Steam": {
               "suppressParent": "All",

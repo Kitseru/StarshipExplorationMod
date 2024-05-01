@@ -4,28 +4,25 @@ using UnityEngine;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-//using StarshipExplorationMod.Patches;
 using System.IO;
 using System.Reflection;
+using StarshipDeliveryMod;
+using StarshipExplorationMod.Patches;
 
 namespace StarshipExplorationMod
 {
-    [BepInPlugin(modGUID, modName, modVersion)]
+    [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+    [BepInDependency("Laventin.StarshipDeliveryMod", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency(LethalLib.Plugin.ModGUID)] 
     public class StarshipExploration : BaseUnityPlugin
     {
-        private const string modGUID = "Laventin.StarshipExplorationMod";
-        private const string modName = "StarshipExploration";
-        private const string modVersion = "0.0.1";
-
-        private readonly Harmony harmony = new(modGUID);
+        private readonly Harmony harmony = new(MyPluginInfo.PLUGIN_GUID);
 
         internal static StarshipExploration Instance = null!;
 
         internal static ManualLogSource mls = null!;
 
         public static AssetBundle Ressources = null!;
-
-        public static string LevelDataConfig = null!;
 
         void Awake()
         {
@@ -34,32 +31,24 @@ namespace StarshipExplorationMod
                 Instance = this;
             }
 
-            mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
-            mls.LogInfo("Starship Delivery Mod loaded");
+            mls = BepInEx.Logging.Logger.CreateLogSource(MyPluginInfo.PLUGIN_GUID);
+            mls.LogInfo("Starship Exploration Mod loaded");
 
             string currentAssemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            Ressources = AssetBundle.LoadFromFile(Path.Combine(currentAssemblyLocation, "StarshipExploration"));
+            Ressources = AssetBundle.LoadFromFile(Path.Combine(currentAssemblyLocation, "starshipexploration"));
 
             if (Ressources == null) {
                 mls.LogError("Failed to load custom assets.");
                 return;
             }
 
-            try
-            {
-                LevelDataConfig = File.ReadAllText(Path.Combine(currentAssemblyLocation, "ShipPositionConfig.json"));
-            }
-            catch
-            {
-                mls.LogError("Failed to load ShipPositionConfig.json");
-                return;
-            }
+            StarshipDelivery.AutoReplace = false;
 
-            //LevelDataManager.InitializeLevelDatas(LevelDataConfig);
-
-            //harmony.PatchAll(typeof(ItemDropshipPatch));
+            harmony.PatchAll(typeof(ItemDropshipPatch));
             //harmony.PatchAll(typeof(StartOfRoundPatch));
+
+            //LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(bigRedButtonPrefab);
 
             mls = Logger;
         }

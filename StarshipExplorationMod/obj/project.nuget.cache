@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Lt3/e2K/2bGA1DwfUc8fQja3ZKuJUT6hXeL9i84JeWPT/LOWAPgUEiH1vmUmz8xctA6py1zdxW1tuAWo7Si/VQ==",
+  "dgSpecHash": "660vAmXBsZNxVtgMi5czHgx1joOdTFAu0VUuNe0/pxOPX5tK88xlEJ7NaXaFJ41gY9zSjqFSyMebs2T+wFVmLw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Valentin\\Documents\\Projets\\Modding\\LethalCompany\\StarshipExplorationMod\\StarshipExplorationMod\\StarshipExplorationMod.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Valentin\\.nuget\\packages\\bepinex.baselib\\5.4.20\\bepinex.baselib.5.4.20.nupkg.sha512",
     "C:\\Users\\Valentin\\.nuget\\packages\\bepinex.core\\5.4.21\\bepinex.core.5.4.21.nupkg.sha512",
     "C:\\Users\\Valentin\\.nuget\\packages\\bepinex.plugininfoprops\\2.1.0\\bepinex.plugininfoprops.2.1.0.nupkg.sha512",
+    "C:\\Users\\Valentin\\.nuget\\packages\\evaisa.lethallib\\0.15.1\\evaisa.lethallib.0.15.1.nupkg.sha512",
     "C:\\Users\\Valentin\\.nuget\\packages\\harmonyx\\2.7.0\\harmonyx.2.7.0.nupkg.sha512",
     "C:\\Users\\Valentin\\.nuget\\packages\\lethalcompany.gamelibs.steam\\50.0.1-ngd.0\\lethalcompany.gamelibs.steam.50.0.1-ngd.0.nupkg.sha512",
     "C:\\Users\\Valentin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

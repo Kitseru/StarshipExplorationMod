@@ -4,6 +4,6 @@ namespace StarshipExplorationMod
     {
         public const string PLUGIN_GUID = "Laventin.StarshipExplorationMod";
         public const string PLUGIN_NAME = "StarshipExploration";
-        public const string PLUGIN_VERSION = "1.0.3";
+        public const string PLUGIN_VERSION = "0.0.1";
     }
 }

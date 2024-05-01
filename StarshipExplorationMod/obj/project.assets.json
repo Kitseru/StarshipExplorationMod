@@ -36,6 +36,18 @@
           "build/BepInEx.PluginInfoProps.props": {}
         }
       },
+      "Evaisa.LethalLib/0.15.1": {
+        "type": "package",
+        "dependencies": {
+          "BepInEx.Core": "5.4.21"
+        },
+        "compile": {
+          "lib/netstandard2.1/LethalLib.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/LethalLib.dll": {}
+        }
+      },
       "HarmonyX/2.7.0": {
         "type": "package",
         "dependencies": {
@@ -762,6 +774,19 @@
         "bepinex.plugininfoprops.2.1.0.nupkg.sha512",
         "bepinex.plugininfoprops.nuspec",
         "build/BepInEx.PluginInfoProps.props"
+      ]
+    },
+    "Evaisa.LethalLib/0.15.1": {
+      "sha512": "QEJDkRrufYZpGOZ07TeNcftZTQVcc8nSmbjWos9rEccUDFGNrm3Fp46oGQPtk4QFQD4CHLxlLXmQVQUN0yT2Fw==",
+      "type": "package",
+      "path": "evaisa.lethallib/0.15.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "evaisa.lethallib.0.15.1.nupkg.sha512",
+        "evaisa.lethallib.nuspec",
+        "lib/netstandard2.1/LethalLib.dll"
       ]
     },
     "HarmonyX/2.7.0": {
@@ -2867,6 +2892,7 @@
       "BepInEx.Analyzers >= 1.*",
       "BepInEx.Core >= 5.*",
       "BepInEx.PluginInfoProps >= 2.*",
+      "Evaisa.LethalLib >= 0.*",
       "LethalCompany.GameLibs.Steam >= *-*",
       "UnityEngine.Modules >= 2022.3.9"
     ]
@@ -2875,7 +2901,7 @@
     "C:\\Users\\Valentin\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.3",
+    "version": "0.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\Valentin\\Documents\\Projets\\Modding\\LethalCompany\\StarshipExplorationMod\\StarshipExplorationMod\\StarshipExplorationMod.csproj",
       "projectName": "Laventin.StarshipExplorationMod",
@@ -2884,6 +2910,7 @@
       "outputPath": "C:\\Users\\Valentin\\Documents\\Projets\\Modding\\LethalCompany\\StarshipExplorationMod\\StarshipExplorationMod\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+        "C:\\Users\\Valentin\\Documents\\Projets\\Modding\\LethalCompany\\StarshipExplorationMod\\StarshipExplorationMod\\NuGet.Config",
         "C:\\Users\\Valentin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
@@ -2930,6 +2957,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.*, )"
+          },
+          "Evaisa.LethalLib": {
+            "target": "Package",
+            "version": "[0.*, )"
           },
           "LethalCompany.GameLibs.Steam": {
             "suppressParent": "All",

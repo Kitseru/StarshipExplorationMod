@@ -1,0 +1,11 @@
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\bin\Debug\netstandard2.1\Laventin.StarshipExplorationMod.deps.json
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\bin\Debug\netstandard2.1\Laventin.StarshipExplorationMod.dll
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\bin\Debug\netstandard2.1\Laventin.StarshipDeliveryMod.dll
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\StarshipExplorationMod.csproj.AssemblyReference.cache
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\MyPluginInfo.cs
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\StarshipExplorationMod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\StarshipExplorationMod.AssemblyInfoInputs.cache
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\StarshipExplorationMod.AssemblyInfo.cs
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\StarshipExplorationMod.csproj.CoreCompileInputs.cache
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\Starship.83E34705.Up2Date
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\Laventin.StarshipExplorationMod.dll
