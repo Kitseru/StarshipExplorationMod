@@ -9,3 +9,4 @@ C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod
 C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\StarshipExplorationMod.csproj.CoreCompileInputs.cache
 C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\Starship.83E34705.Up2Date
 C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\Laventin.StarshipExplorationMod.dll
+C:\Users\Valentin\Documents\Projets\Modding\LethalCompany\StarshipExplorationMod\StarshipExplorationMod\obj\Debug\netstandard2.1\StarshipExplorationMod.sourcelink.json

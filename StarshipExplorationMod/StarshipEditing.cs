@@ -27,9 +27,20 @@ internal class StarshipEditing
         _dropShip.transform.Find("StarshipModel/InteriorLight.001").transform.localPosition = new Vector3(-0.54f, 0.97f, -2.444f);
         _dropShip.transform.Find("StarshipModel/InteriorLight.002").transform.localPosition = new Vector3(0.54f, 0.97f, -2.444f);
 
+        // Disable non needed colliders
+        Collider[] colliders = _dropShip.transform.Find("StarshipModel/ShipBody").GetComponents<Collider>();
+        foreach (Collider col in colliders)
+        {
+            col.enabled = false;
+        }
+
         // Initialize Elevator Button
+        interiorPropsObject.AddComponent<StarshipElevatorAnimationEvents>();
         interiorPropsObject.AddComponent<StarshipElevator>();
         interiorPropsObject.GetComponent<StarshipElevator>().trigger = _dropShip.transform.Find("StarshipModel/StarshipInteriorProps/ButtonTrigger").GetComponent<InteractTrigger>();
+
+        // Rebind Animation Events
+        interiorPropsObject.GetComponent<Animator>().Rebind();
 
         StarshipExploration.mls.LogInfo("Ship editing is complete");
     }
