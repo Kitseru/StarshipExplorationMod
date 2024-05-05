@@ -46,7 +46,7 @@ namespace StarshipExplorationMod
             StarshipDelivery.AutoReplace = false;
 
             harmony.PatchAll(typeof(ItemDropshipPatch));
-            //harmony.PatchAll(typeof(StartOfRoundPatch));
+            harmony.PatchAll(typeof(PlayerControllerBPatch));
 
             //LethalLib.Modules.NetworkPrefabs.RegisterNetworkPrefab(bigRedButtonPrefab);
 
@@ -54,3 +54,8 @@ namespace StarshipExplorationMod
         }
     }
 }
+
+//Utils :
+
+//Fog around player : 
+//Systems/Rendering/VolumeMain

@@ -11,23 +11,20 @@ namespace StarshipExplorationMod.Patches
     [HarmonyPatch(typeof(ItemDropship))]
     public class ItemDropshipPatch
     {
-
-        public static float timer;
-        private StarshipElevator? elevator;
-
         [HarmonyPatch("Start")]
         [HarmonyPostfix]
         public static void StartPatch(ref ItemDropship __instance)
         {
             StarshipDelivery.InitStarshipReplacement(__instance);
             StarshipEditing.EditStarshipModel(__instance.gameObject);
+            TriggersManager.HideTriggers();
         }
 
-        [HarmonyPatch("Update")]
+        [HarmonyPatch("ShipLeave")]
         [HarmonyPostfix]
-        public static void UpdatePatch(ref ItemDropship __instance)
+        public static void ShipLeavePatch(ref ItemDropship __instance)
         {
-            timer = __instance.shipTimer;
+            __instance.GetComponentInChildren<StarshipElevator>().ShipLeave();
         }
 
         [HarmonyPatch(typeof(ItemDropship), "Update")]
@@ -57,9 +54,9 @@ namespace StarshipExplorationMod.Patches
 
             var logMethod = AccessTools.Method(typeof(UnityEngine.Debug), "Log", new Type[] { typeof(object) });
 
-            customInstuctions.Add(new CodeInstruction(OpCodes.Ldstr, "----------- Transpiler added code Begining"));
-
-            customInstuctions.Add(new CodeInstruction(OpCodes.Call, logMethod));
+            //Log :
+            //customInstuctions.Add(new CodeInstruction(OpCodes.Ldstr, "----------- Transpiler added code Begining"));
+            //customInstuctions.Add(new CodeInstruction(OpCodes.Call, logMethod));
 
             customInstuctions.Add(new CodeInstruction(OpCodes.Ldarg_0));
 
@@ -86,9 +83,9 @@ namespace StarshipExplorationMod.Patches
 
             customInstuctions.Add(new CodeInstruction(OpCodes.Stfld, shipTimerField));
 
-            customInstuctions.Add(new CodeInstruction(OpCodes.Ldstr, "----------- Substracting DeltaTime"));
-
-            customInstuctions.Add(new CodeInstruction(OpCodes.Call, logMethod));
+            //Log :
+            //customInstuctions.Add(new CodeInstruction(OpCodes.Ldstr, "----------- Substracting DeltaTime"));
+            //customInstuctions.Add(new CodeInstruction(OpCodes.Call, logMethod));
 
             customInstuctions.Add(new CodeInstruction(OpCodes.Br_S, noiseInterval_Label));
 
@@ -108,19 +105,8 @@ namespace StarshipExplorationMod.Patches
 
         public static bool isElevatorRetracted(ItemDropship _dropShip)
         {
-            StarshipExploration.mls.LogInfo("--------- isElevatorRetractedCalled");
-            StarshipExploration.mls.LogInfo("--------- instance : " + _dropShip.name);
             bool isElevatorRetracted = _dropShip.GetComponentInChildren<StarshipElevator>().isRetracted;
-            StarshipExploration.mls.LogInfo("--------- elevator Object : " + _dropShip.GetComponentInChildren<StarshipElevator>().gameObject.name);
-            StarshipExploration.mls.LogInfo("--------- bool : " + isElevatorRetracted);
             return isElevatorRetracted;
-        }
-
-        void OnGUI()
-        {
-            GUI.Label(new Rect(100, 20, 100, 50), timer.ToString());
-            //StarshipDelivery.mls.LogInfo(deliveryTimer.ToString());
-        }
-        
+        }        
     }
 }

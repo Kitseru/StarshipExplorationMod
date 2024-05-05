@@ -8,14 +8,18 @@ using UnityEngine;
 
 internal class StarshipElevator : NetworkBehaviour
 {
+    public ItemDropship? dropShip;
     public InteractTrigger? trigger;
     private Animator? anim;
     private bool isDown = false;
     public bool isRetracted = true;
+    public static Action<StarshipElevator>? onElevatorClosed;
+    public GameObject? fakeElevator;
     void Start()
     {
         if(trigger == null) return;
 
+        fakeElevator = UnityEngine.Object.Instantiate(StarshipExploration.Ressources.LoadAsset<GameObject>("assets/prefabs/starshipelevatorroom.prefab"), new Vector3(-1278f, -200f, -14f), Quaternion.identity);
         trigger.onInteract.AddListener(ElevatorSwitch);
         GetComponent<StarshipElevatorAnimationEvents>().onElevatorStops += SetElevatorFloor;
         anim = GetComponent<Animator>();
@@ -30,9 +34,12 @@ internal class StarshipElevator : NetworkBehaviour
     [ServerRpc]
     private void ElevatorSwitchServerRpc()
     {
-        anim?.SetBool("Down", !isDown);
-        isRetracted = false;
-        ElevatorSwitchClientRpc(!isDown);
+        if(dropShip.shipLanded && dropShip.shipDoorsOpened)
+        {
+            anim?.SetBool("Down", !isDown);
+            isRetracted = false;
+            ElevatorSwitchClientRpc(!isDown);
+        }
     }
 
     [ClientRpc]
@@ -45,18 +52,20 @@ internal class StarshipElevator : NetworkBehaviour
 
     private void SetElevatorFloor(bool _isDown)
     {
-/*         if(!IsServer)
-        {
-            return;
-        } */
-
         isDown = _isDown;
         Debug.Log("New Elevator position : isDown = " + isDown);
 
         if(!_isDown)
         {
             Debug.Log("--------- Elevator Retracted = True !");
+            onElevatorClosed?.Invoke(this);
             isRetracted = true;
         }
+    }
+
+    public void ShipLeave()
+    {
+        anim?.SetBool("Down", false);
+        isRetracted = false;
     }
 }

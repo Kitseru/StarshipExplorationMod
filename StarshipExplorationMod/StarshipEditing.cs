@@ -37,7 +37,10 @@ internal class StarshipEditing
         // Initialize Elevator Button
         interiorPropsObject.AddComponent<StarshipElevatorAnimationEvents>();
         interiorPropsObject.AddComponent<StarshipElevator>();
-        interiorPropsObject.GetComponent<StarshipElevator>().trigger = _dropShip.transform.Find("StarshipModel/StarshipInteriorProps/ButtonTrigger").GetComponent<InteractTrigger>();
+        var trigger = interiorPropsObject.transform.Find("ButtonTrigger");
+        interiorPropsObject.GetComponent<StarshipElevator>().trigger = trigger.GetComponent<InteractTrigger>();
+        interiorPropsObject.GetComponent<StarshipElevator>().dropShip = _dropShip.GetComponent<ItemDropship>();
+        TriggersManager.AddToTriggerCollection([trigger.gameObject]);
 
         // Rebind Animation Events
         interiorPropsObject.GetComponent<Animator>().Rebind();
