@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarshipElevatorAnimationEvents : MonoBehaviour
+namespace StarshipExplorationMod{
+
+    
+internal class StarshipElevatorAnimationEvents : MonoBehaviour
 {
     public Action<bool>? onElevatorStops;
     private Animator? anim;
@@ -19,4 +22,7 @@ public class StarshipElevatorAnimationEvents : MonoBehaviour
         Debug.Log("-------------- Elevator Stop Animation Event Triggered");
         onElevatorStops?.Invoke(anim.GetBool("Down"));
     }
+}
+
+
 }

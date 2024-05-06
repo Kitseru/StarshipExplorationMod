@@ -4,33 +4,35 @@ using HarmonyLib;
 using StarshipExplorationMod;
 using UnityEngine;
 
-namespace StarshipExplorationMod
+namespace StarshipExplorationMod{   
+    
+
+internal class TriggersManager
 {
-    internal class TriggersManager
+    private static List<Renderer> triggerCollection = [];
+
+    //Generic so any array type can be passed as argument as long as it's a component
+    public static void AddToTriggerCollection<T>(T[] objects) where T : Component
     {
-        private static List<Renderer> triggerCollection = [];
-
-        public static void AddToTriggerCollection(GameObject[] _triggers)
+        foreach (var obj in objects)
         {
-            foreach (var trigger in _triggers)
-            {
-                if(triggerCollection.Contains(trigger.GetComponent<Renderer>()))
-                {
-                    continue;
-                }
-                
-                triggerCollection.Add(trigger.GetComponent<Renderer>());
-            }
+            var renderer = obj.GetComponent<Renderer>();
 
-            HideTriggers();
-        }
+            if(renderer == null) continue;
+            if(triggerCollection.Contains(renderer)) continue;
 
-        public static void HideTriggers()
-        {
-            foreach (var trigger in triggerCollection)
-            {
-                trigger.enabled = false;
-            }
+            triggerCollection.Add(renderer);
+            renderer.enabled = false;
         }
     }
+    public static void HideTriggers()
+    {
+        foreach(var renderer in triggerCollection)
+        {
+            renderer.enabled = false;
+        }
+    }
+}
+
+
 }

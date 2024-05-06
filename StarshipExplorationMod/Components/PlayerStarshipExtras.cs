@@ -7,6 +7,9 @@ using StarshipExplorationMod;
 using Unity.Netcode;
 using UnityEngine;
 
+namespace StarshipExplorationMod{
+
+
 internal class PlayerStarshipExtras : NetworkBehaviour
 {
     private PlayerControllerB? playerController;
@@ -84,7 +87,7 @@ internal class PlayerStarshipExtras : NetworkBehaviour
         Quaternion relativeRotation = Quaternion.Inverse(_parent1.rotation) * _child.rotation;
 
         Matrix4x4 relativeMatrix = Matrix4x4.TRS(relativePosition, Quaternion.identity, Vector3.one) *
-                                   Matrix4x4.TRS(Vector3.zero, relativeRotation, Vector3.one);
+                                Matrix4x4.TRS(Vector3.zero, relativeRotation, Vector3.one);
 
         Vector3 newPosition = _parent2.TransformPoint(relativeMatrix.GetColumn(3));
         Quaternion newRotation = _parent2.rotation * Quaternion.LookRotation(relativeMatrix.GetColumn(2), relativeMatrix.GetColumn(1));
@@ -108,4 +111,7 @@ internal class PlayerStarshipExtras : NetworkBehaviour
             rot = rotation;
         }
     }
+}
+
+
 }
